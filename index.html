@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starry Background</title>
+  <!-- Подключение внешнего файла стилей -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+  <body>  
+
+    <!-- Кнопка SPACE с блеском -->
+    <button type="button" class="btn" id="spaceButton">
+        <strong>Поддержать</strong>
+        <div id="container-stars">
+            <div id="stars"></div>
+        </div>
+        <div id="glow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </button>
+
+    <!-- Текст под кнопкой -->
+    <p id="vsflashText">@Vsflash</p>
+
+    <!-- Прозрачная кнопка поверх основной -->
+    <button type="button" class="overlay-btn" id="overlayButton"></button>
+
+    <div class="stars"></div>
+
+    <script>
+      // Функция для создания звёзд
+      function createStars() {
+        const starContainer = document.querySelector('.stars');
+        const starCount = 100; // Количество звёзд
+
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement('div');
+          star.classList.add('star');
+
+          // Рандомное позиционирование звёзд
+          star.style.left = `${Math.random() * 100}vw`;
+          star.style.top = `${Math.random() * -100}vh`; // Начинаем выше экрана
+
+          // Рандомная длительность падения (без задержки)
+          const duration = Math.random() * 0 + 3; // от 3 до 10 секунд
+          star.style.animationDuration = `${duration}s`;
+
+          starContainer.appendChild(star);
+        }
+      }
+
+      // Вызов функции для создания звёзд
+      createStars();
+
+      // Открытие ссылки при нажатии на прозрачную кнопку
+      document.getElementById('overlayButton').addEventListener('click', function() {
+          window.open('https://app.tonkeeper.com/transfer/UQAwNFXOcd1COXIvfcib29JJ6dPEx0QNIQtUBdmOoMOjXHYK', '_blank');
+      });
+    </script>
+    
+  </body>
+</html>

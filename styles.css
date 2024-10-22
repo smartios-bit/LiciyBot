@@ -1,0 +1,274 @@
+/* From Uiverse.io by rubyreapergaming */ 
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap");
+
+/* Стили для звёздного фона */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black; /* Чёрный фон */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Контейнер для звёзд */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Каждая звезда */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: fall linear infinite, glow 2s ease-in-out infinite;
+}
+
+/* Анимация плавного падения звёзд */
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Анимация для эффекта хвоста звезды */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 6px 3px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Стили для кнопки */
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    overflow: hidden;
+    height: 3rem;
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#161a25, #161a25),
+        linear-gradient(
+            137.48deg,
+            #f5434f 10%,
+            #631e29 45%,
+            #000000 67%,
+            #161a25 87%
+        );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    font-family: "Orbitron", sans-serif;
+    cursor: pointer; /* Курсор при наведении */
+}
+
+/* Стили для контейнера звёзд */
+#container-stars {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+}
+
+/* Стили для текста внутри кнопки */
+strong {
+    z-index: 2;
+    font-family: "Orbitron", sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 4px white;
+}
+
+/* Стили для блеска */
+#glow {
+    position: absolute;
+    display: flex;
+    width: 12rem;
+}
+
+.circle-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: orbit 5s linear infinite;
+}
+
+.circle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    filter: blur(2rem);
+}
+
+.circle:nth-of-type(1) {
+    background: rgba(245, 67, 79, 0.636);
+    animation: orbit 8s linear infinite;
+}
+
+.circle:nth-of-type(2) {
+    background: rgba(99, 30, 41, 0.704);
+    animation: orbit 10s linear infinite;
+}
+
+/* Эффект при наведении на кнопку */
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Эффект при нажатии на кнопку */
+.btn:active {
+    border: double 4px #631e29;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+}
+
+.btn:active .circle {
+    background: #631e29;
+}
+
+/* Анимация орбиты для кругов */
+@keyframes orbit {
+    from {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+}
+
+/* Стили для звёзд */
+#stars {
+    position: relative;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+}
+
+#stars::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+}
+
+#stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 60s linear infinite;
+}
+#stars::before {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-135rem);
+    }
+}
+
+@keyframes animStarRotate {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+
+@keyframes gradient_301 {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse_3011 {
+    0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+
+.overlay-btn {
+    position: absolute; /* Позволяет разместить кнопку поверх основной */
+    top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -50%); /* Сдвигаем кнопку для точного центрирования */
+    width: 13rem; /* Ширина такой же, как у основной кнопки */
+    height: 3rem; /* Высота такой же, как у основной кнопки */
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Убираем рамку */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    z-index: 20; /* Убедимся, что она поверх основной кнопки */
+}
+
+
+#vsflashText {
+    font-size: 18px;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    text-align: center;
+    margin-top: 20px; /* Отступ сверху */
+    position: absolute;
+    top: 51%; /* Это переместит текст ниже кнопки */
+    left: 50%;
+    transform: translateX(-50%);
+}
